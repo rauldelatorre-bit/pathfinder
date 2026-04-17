@@ -1,0 +1,58 @@
+@import "tailwindcss";
+
+@theme {
+  --color-primary: #7A1F1F;
+  --color-primary-container: #5B060C;
+  --color-secondary: #C8A951;
+  --color-surface: #F4ECD8;
+  --color-background: #F4ECD8;
+  --color-on-surface: #1F1B16;
+  --color-on-background: #1F1B16;
+  
+  --font-serif: "Cormorant Garamond", serif;
+  --font-sans: "Inter", sans-serif;
+  
+  --radius-xl: 0.75rem;
+  --radius-2xl: 1rem;
+}
+
+@layer base {
+  body {
+    @apply font-sans bg-background text-on-background;
+  }
+  h1, h2, h3, h4 {
+    @apply font-serif;
+  }
+}
+
+/* Dark mode overrides if needed, but primary focus is the requested warm theme */
+.dark {
+  --color-surface: #1F1B16;
+  --color-background: #1F1B16;
+  --color-on-surface: #F4ECD8;
+  --color-on-background: #F4ECD8;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  @apply bg-primary/20 rounded-full;
+}
+
+@media print {
+  .no-print {
+    display: none !important;
+  }
+  body {
+    background: white !important;
+    color: black !important;
+  }
+  .print-page {
+    padding: 2cm;
+  }
+}
